@@ -38,7 +38,7 @@ const siteContent = {
 };
 
 // nav section
-// create new links in DOM
+// create new links in document
 const navElement = document.querySelector("nav");
 const newlink1 = document.createElement("a");
 navElement.prepend(newlink1);
@@ -46,14 +46,14 @@ const newlink2 = document.createElement("a");
 navElement.append(newlink2);
 
 // add names, attributes as needed, and color to links
-let navlinks = document.querySelectorAll("a");
+const navlinks = document.querySelectorAll("a");
 navlinks.forEach((element, i) => {
   // name the links
   if (i === 0) element.textContent = "First";
   else if (i === navlinks.length - 1) element.textContent = "Last";
   else element.textContent = siteContent.nav[`nav-item-${i}`];
   // add href attributes to first and last link
-  if (i === 0 || i === navlinks.length - 1) newlink1.setAttribute("href", "#");
+  if (i === 0 || i === navlinks.length - 1) element.setAttribute("href", "#");
   // make all links green
   element.style.color = "green";
 });
