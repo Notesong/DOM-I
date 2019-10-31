@@ -97,10 +97,15 @@ const middleImg = document.getElementById("middle-img");
 middleImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 
 // contact section
+
+
 const contactH4 = document.querySelector(".contact h4");
 contactH4.textContent = siteContent.contact["contact-h4"];
 const contactP = document.querySelectorAll(".contact p");
-contactP[0].textContent = siteContent.contact.address;
+// add <br> to address using substr()
+let str = siteContent.contact.address;
+let newStr = str.substr(0,19) + "<br>" + str.substr(19);
+contactP[0].innerHTML = newStr;
 contactP[1].textContent = siteContent.contact.phone;
 contactP[2].textContent = siteContent.contact.email;
 
