@@ -3,11 +3,12 @@ let msTens = 0;
 let msHuns = 0;
 let sOnes = 0;
 let sTens = 0;
-let myVar = 0;
+// variable for setting interval for timer
+let timerInterval;
 
 let button = document.querySelector("button");
 button.addEventListener('click', (event) => {
-    myVar = setInterval(timer, 10);
+    timerInterval = setInterval(timer, 10);
 });
 
 function timer() {
@@ -54,7 +55,7 @@ function secTensTimer() {
     // only run when timer hits 10 seconds
     document.getElementById("secondTens").innerHTML = ++sTens;
     // stop timer
-    clearInterval(myVar);
+    clearInterval(timerInterval);
     // make all numbers red
     const digits = document.querySelectorAll(".digit");
     digits.forEach(element => {
