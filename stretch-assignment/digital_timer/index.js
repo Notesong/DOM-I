@@ -3,9 +3,12 @@ let msTens = 0;
 let msHuns = 0;
 let sOnes = 0;
 let sTens = 0;
+let myVar = 0;
 
-// start timer
-let myVar = setInterval(timer, 10);
+let button = document.querySelector("button");
+button.addEventListener('click', (event) => {
+    myVar = setInterval(timer, 10);
+});
 
 function timer() {
     // set timer to zero
