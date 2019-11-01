@@ -65,7 +65,10 @@ logo.setAttribute("src", siteContent.nav["img-src"]);
 // cta section
 // cta title
 const ctaTitle = document.querySelector("h1");
-ctaTitle.textContent = siteContent.cta.h1;
+// add \n to title string using substr()
+let ctaStr = siteContent.cta.h1;
+let newCtaStr = ctaStr.substr(0,3) + "\n" + ctaStr.substr(3,4) + "\n" + ctaStr.substr(6);
+ctaTitle.innerText = newCtaStr;
 
 // cta button
 const ctaButton = document.querySelector("button");
@@ -100,7 +103,7 @@ middleImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
 const contactH4 = document.querySelector(".contact h4");
 contactH4.textContent = siteContent.contact["contact-h4"];
 const contactP = document.querySelectorAll(".contact p");
-// add <br> to address using substr()
+// add \n to address using substr()
 let str = siteContent.contact.address;
 let newStr = str.substr(0,19) + "\n" + str.substr(19);
 contactP[0].innerText = newStr;
