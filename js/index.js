@@ -37,6 +37,79 @@ const siteContent = {
   },
 };
 
-// Example: Update the img src for the logo
-let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+// nav section
+// create new links in document
+const navElement = document.querySelector("nav");
+const newlink1 = document.createElement("a");
+navElement.prepend(newlink1);
+const newlink2 = document.createElement("a");
+navElement.append(newlink2);
+
+// add names, attributes as needed, and color to links
+const navlinks = document.querySelectorAll("a");
+navlinks.forEach((element, i) => {
+  // name the links
+  if (i === 0) element.textContent = "First";
+  else if (i === navlinks.length - 1) element.textContent = "Last";
+  else element.textContent = siteContent.nav[`nav-item-${i}`];
+  // add href attributes to first and last link
+  if (i === 0 || i === navlinks.length - 1) element.setAttribute("href", "#");
+  // make all links green
+  element.style.color = "green";
+});
+
+// logo image
+const logo = document.getElementById("logo-img");
+logo.setAttribute("src", siteContent.nav["img-src"]);
+
+// cta section
+// cta title
+const ctaTitle = document.querySelector("h1");
+// add \n to title string using substr()
+let ctaStr = siteContent.cta.h1;
+let newCtaStr = ctaStr.substr(0,3) + "\n" + ctaStr.substr(3,4) + "\n" + ctaStr.substr(6);
+ctaTitle.innerText = newCtaStr;
+
+// cta button
+const ctaButton = document.querySelector("button");
+ctaButton.textContent = siteContent.cta.button;
+
+// cta img
+const ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute("src", siteContent.cta["img-src"]);
+
+// main content sections
+// headers
+const contentH4 = document.querySelectorAll(".text-content h4");
+contentH4[0].textContent = siteContent["main-content"]["features-h4"];
+contentH4[1].textContent = siteContent["main-content"]["about-h4"];
+contentH4[2].textContent = siteContent["main-content"]["services-h4"];
+contentH4[3].textContent = siteContent["main-content"]["product-h4"];
+contentH4[4].textContent = siteContent["main-content"]["vision-h4"];
+
+// paragraphs
+const contentP = document.querySelectorAll(".text-content p");
+contentP[0].textContent = siteContent["main-content"]["features-content"];
+contentP[1].textContent = siteContent["main-content"]["about-content"];
+contentP[2].textContent = siteContent["main-content"]["services-content"];
+contentP[3].textContent = siteContent["main-content"]["product-content"];
+contentP[4].textContent = siteContent["main-content"]["vision-content"];
+
+// middle img
+const middleImg = document.getElementById("middle-img");
+middleImg.setAttribute("src", siteContent["main-content"]["middle-img-src"]);
+
+// contact section
+const contactH4 = document.querySelector(".contact h4");
+contactH4.textContent = siteContent.contact["contact-h4"];
+const contactP = document.querySelectorAll(".contact p");
+// add \n to address using substr()
+let str = siteContent.contact.address;
+let newStr = str.substr(0,19) + "\n" + str.substr(19);
+contactP[0].innerText = newStr;
+contactP[1].textContent = siteContent.contact.phone;
+contactP[2].textContent = siteContent.contact.email;
+
+// footer
+const footerP = document.querySelector("footer p");
+footerP.textContent = siteContent.footer.copyright;
